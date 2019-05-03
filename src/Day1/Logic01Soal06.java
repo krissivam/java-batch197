@@ -2,7 +2,7 @@ package Day1;
 
 import java.util.Scanner;
 
-public class Logic01Soal05 {
+public class Logic01Soal06 {
 	//create object input from java.util.Scanner
 	protected static Scanner input;
 
