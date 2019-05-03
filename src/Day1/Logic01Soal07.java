@@ -2,7 +2,7 @@ package Day1;
 
 import java.util.Scanner;
 
-public class Logic01Soal06 {
+public class Logic01Soal07 {
 	//create object input from java.util.Scanner
 	protected static Scanner input;
 
@@ -14,17 +14,13 @@ public class Logic01Soal06 {
 		//and then grab all text from keyboard and convert to int using method parseInt
 		int n = Integer.parseInt(input.nextLine());
 		//create variable number, and set initial value
-		int number=1;
+		int number=2;
 		//looping start from 0, and max number from input
-		for (int i = 1; i <= n; i++) {
-			if (i % 3 == 0) {
-				System.out.print("*" + "\t");
-			} else {
-				System.out.print(number +"\t");
-			//next number will be current number +4
-			number=number+4;
-			}
-			
+		for (int i = 0; i < n; i++) {
+			//show value variable i to console
+			System.out.print(number +"\t");
+			//next number will be current number + 2
+			number=number*2;
 		}
 		
 
