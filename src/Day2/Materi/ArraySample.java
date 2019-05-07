@@ -2,7 +2,7 @@ package Day2.Materi;
 
 public class ArraySample {
 	
-	public static void main() {
+	public static void main(String[] args) {
 		
 		int [][] array2 = new int [][] {{11,2,4}, {4,5,6}, {10,8,-12}};
 		int a = 0;
@@ -32,6 +32,10 @@ public class ArraySample {
 				if (i==j) {
 					a = a + array2[i][j];
 				}
+				
+				if (i+j==array2.length-1) {
+					b=b+array2[i][j];
+				}
 			}
 		}
 		
@@ -44,7 +48,7 @@ public class ArraySample {
 		return hasil;
 	}
 
-	public static void main(String[] args) {
+	/* public static void main(String[] args) {
 		int [] array = new int[] {1,2,3,4,5};
 		System.out.println(array[1]);
 		System.out.println(array[4]);
@@ -57,7 +61,7 @@ public class ArraySample {
 		
 		
 
-	}
+	} */
 	
 
 }
