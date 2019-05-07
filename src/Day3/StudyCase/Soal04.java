@@ -11,6 +11,7 @@ public class Soal04 {
 		input = new Scanner(System.in);
 		System.out.println("Input N : ");
 		int n = input.nextInt();
+		System.out.println("Input M : ");
 		int m = input.nextInt();
 		
 		int[] array = new int[n];
