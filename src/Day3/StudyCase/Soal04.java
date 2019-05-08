@@ -21,7 +21,7 @@ public class Soal04 {
 		for (int i = 0; i < n; i++) {
 			System.out.print(deret[i] + "\t");
 		}
-		for (int i = 1; i <= n ; i++) {
+		for (int i = 1; i <= m ; i++) {
 			System.out.println("");
 			System.out.println("Geser ke " + i);
 			int temp = deret[n - 1];
@@ -29,7 +29,7 @@ public class Soal04 {
 				deret[j] = deret [j - 1];
 			}
 			deret[0] = temp;
-			for (int k = 0; k < m; k++) {
+			for (int k = 0; k < n; k++) {
 				System.out.print(deret[k] + "\t");
 			}
 		}
