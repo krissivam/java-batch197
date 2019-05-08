@@ -14,18 +14,40 @@ public class Soal04 {
 		System.out.println("Input M : ");
 		int m = input.nextInt();
 		
-		int[] array = new int[n];
-		int awal = 1;
+		System.out.println();
 		
-		//Membuat Deret 1
+		// Cetak Deret Awal
+		int[] deret = deretAwal(n, m);
 		for (int i = 0; i < n; i++) {
-			array[i] = awal;
-			awal = awal + (i+2);
+			System.out.print(deret[i] + "\t");
+		}
+		for (int i = 1; i <= n ; i++) {
+			System.out.println("");
+			System.out.println("Geser ke " + i);
+			int temp = deret[n - 1];
+			for (int j = n-1; j > 0; j--) {
+				deret[j] = deret [j - 1];
+			}
+			deret[0] = temp;
+			for (int k = 0; k < m; k++) {
+				System.out.print(deret[k] + "\t");
+			}
 		}
 		
-		
-		}
-
+	}
 	
+	// Method cetak deret
+	static int[] deretAwal(int n, int m) {
+		int[] hasil = new int[n];
+		int awal = 1;
+		int tambah = 2;
+		for (int i = 0; i < n; i++) {
+			hasil[i] = awal;
+			awal = awal + tambah;
+			tambah = tambah + 1;
+		}
+		return hasil;
+	}
+
 
 }

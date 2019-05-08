@@ -27,7 +27,7 @@ public class Soal01 {
 			//System.out.print(deret[i]+ "\t");
 		}
 	
-		System.out.println();
+		System.out.println("\n");
 		
 		//Deret 2
 		for (int j = 0; j < deret2.length; j++) {
@@ -48,7 +48,7 @@ public class Soal01 {
 				}
 				System.out.print(arr[i][j]+ "\t");
 			}
-			System.out.println();
+			System.out.println("\n");
 			
 			
 		}
