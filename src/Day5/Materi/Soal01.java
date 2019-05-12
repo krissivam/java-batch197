@@ -1,3 +1,4 @@
+/*
 package Day5.Materi;
 
 public class Soal01 {
@@ -57,10 +58,15 @@ public class Soal01 {
 		int hasil = org03.perhitungan(5, 6, 7);
 		System.out.println("Perhitungan	: " + hasil);
 		
-		Orang org = new Orang(); 
+		Orang org4 = new Orang();
+		
+		Orang org4 = new Orang(007, "Joni", "New York", "Man", "000009");
+		org4.cetakData();
+		
 		
 		
 		
 	}
 
 }
+*/

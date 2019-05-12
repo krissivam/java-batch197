@@ -14,6 +14,7 @@ public class Logic01Soal01 {
 			System.out.print(awal + "\t");
 			awal += 2;
 		}
+		input.close();
 	}
 
 }

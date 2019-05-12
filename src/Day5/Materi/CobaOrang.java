@@ -1,3 +1,4 @@
+/*
 package Day5.Materi;
 
 import java.util.Scanner;
@@ -28,3 +29,4 @@ public class CobaOrang {
 	}
 
 }
+*/

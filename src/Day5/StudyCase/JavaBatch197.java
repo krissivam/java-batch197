@@ -46,7 +46,7 @@ public class JavaBatch197 {
 			System.out.println("Jenis Kelamin \t: " + org.listJenisKelamin[j]);
 			System.out.println("Nomor Telepon \t: " + org.listNoTelepon[j]);
 			
-		}
+		}//
 
 	}
 

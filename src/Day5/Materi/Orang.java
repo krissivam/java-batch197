@@ -8,6 +8,14 @@ public class Orang {
 	public String jk;
 	public String noTelp;
 	
+	public Orang(int id, String nama, String alamat, String jk, String noTelp) {
+		this.id = id;
+		this.nama = nama;
+		this.alamat = alamat;
+		this.jk = jk;
+		this.noTelp = noTelp;
+	}
+	
 	public int perhitungan(int a, int b, int c) {
 		return a+b+c;
 	}
