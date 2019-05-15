@@ -9,7 +9,7 @@ public class Soal01 {
 	public static void main(String[] args) {
 		
 		input = new Scanner(System.in);
-		int sum, temp = 1;
+		int temp = 1;
 		
 		System.out.print("Input N1 dan N2: ");
 		
@@ -52,6 +52,7 @@ public class Soal01 {
 		}
 		// Hasil Akhir
 		System.out.println(" = " + realSum);
+		input.close();
 
 	}
 
