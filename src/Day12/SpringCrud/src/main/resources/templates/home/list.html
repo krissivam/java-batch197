@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>List Biodata</title>
+</head>
+<body>
+	<style>
+		table {
+			border: 1px solid black;
+			padding: 20px
+		}
+	</style>
+	<table>
+		<caption>Biodata Diri</caption>
+		<thead>
+			<tr>
+				<th>Nama</th>
+				<th>Alamat</th>
+				<th>Tempat Lahir</th>
+				<th>Tanggal Lahir</th>
+				<th>Jenis Kelamin</th>
+				<th>Agama</th>
+				<th>Pekerjaan</th>
+				<th>Golongan Darah</th>
+				<th>Ubah Data</th>
+				<th>Hapus Data</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item:${biodataList}">
+				<td><span th:text="${item.nama}"></span></td>		<!-- nama merujuk ke nama variabel -->
+				<td><span th:text="${item.alamat}"></span></td>
+				<td><span th:text="${item.tptLahir}"></span></td>
+				<td><span th:text="${item.tglLahir}"></span></td>
+				<td><span th:text="${item.jk}"></span></td>
+				<td><span th:text="${item.agama}"></span></td>
+				<td><span th:text="${item.pekerjaan}"></span></td>
+				<td><span th:text="${item.golDarah}"></span></td>
+				<td><a th:href="@{edit/{id}(id=${item.id})}">edit</a></td>
+				<td><a th:href="@{hapus/{id}(id=${item.id})}">hapus</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/home/index}">Back to Form</a>
+</body>
+</html>

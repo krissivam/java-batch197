@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>List Data Siakad</title>
+</head>
+<body>
+	<caption>List Data Siakad</caption>
+	<style>
+		table {
+			border: 1px solid black;
+			padding: 20px
+		}
+	</style>
+	<table>
+		<caption>Fakultas</caption>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Kode Fakultas</th>
+				<th>Nama Fakultas</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "item:${siakadList}">
+				<td><span th:text = "${item.id}"></span></td>
+				<td><span th:text = "${item.kdFakultas}"></span></td>
+				<td><span th:text = "${item.nmFakultas}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

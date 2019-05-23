@@ -1,0 +1,8 @@
+CREATE VIEW view_no3 AS
+SELECT f."NM_FAKULTAS", j."NM_JURUSAN"  
+FROM fakultas f 
+INNER JOIN jurusan j  
+ON j."KD_FAKULTAS" = f."KD_FAKULTAS"
+WHERE j."NM_JURUSAN" LIKE '%ti%';
+
+SELECT * FROM view_no3

@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Form Mata Kuliah</title>
+</head>
+<body>
+	<h2>Form Mata Kuliah</h2>
+	<style>
+		table {
+			border: 1px solid black;
+			padding: 20px;
+		}
+	</style>
+	<form th:action=@{home/matakuliah/save} method="post">
+		<table>
+			<tr>
+				<td>Kode Mata Kuliah</td>
+				<td>:</td>
+				<td><input type="text" name="kdMatakuliah"></td>				
+			</tr>
+			<tr>
+				<td>Nama Mata Kuliah</td>
+				<td>:</td>
+				<td><input type="text" name="nmMatakuliah"></td>
+			</tr>
+			<tr>
+				<td>SKS</td>
+				<td>:</td>
+				<td><input type="text" name="sks"></td>
+			</tr>
+			<tr>
+				<td>Kode Jurusan</td>
+				<td>:</td>
+				<td><select name="jurusanId">
+					<option th:each = "item:${listJurusan}" th: value="${item.id}" th:text = "${item.nmJurusan}">Pilih Jurusan</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="submit" value="Submit">
+					<input type="reset" value="Reset"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

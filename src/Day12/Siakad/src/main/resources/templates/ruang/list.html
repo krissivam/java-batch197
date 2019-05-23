@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>List Data Ruang</title>
+</head>
+<body>
+	<caption><h2>List Data Ruang</h2></caption>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+	<table>
+		<thead>
+			<tr>
+				<th>Kode Ruang</th>
+				<th>Nama Ruang</th>
+				<th>Kapasitas</th>
+				<th>Edit</th>
+				<th>Hapus</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "item:${ruangList}">
+			
+			<td th:text = "${item.kdRuang}"></td>
+			<td th:text = "${item.nmRuang}"></td>
+			<td th:text = "${item.kapasitas}"></td>
+			
+			<td><a th:href = "@{edit/{id}(id=${item.id})}">Edit</a></td>
+			<td><a th:href = "@{hapus/{id}(id=${item.id})}">Hapus</a></td>
+			
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

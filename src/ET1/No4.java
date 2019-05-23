@@ -1,19 +1,19 @@
-package Day2.StudyCase;
+package ET1;
 
 import java.util.Scanner;
 
-public class Soal05 {
+public class No4 {
 	
-	protected static Scanner input;
+	public static Scanner input;
 
 	public static void main(String[] args) {
-		
-		System.out.println("Masukkan kalimat : ");
+		// Case
+		System.out.println("Masukkan Nama: ");
 		input = new Scanner(System.in);
 		String kalimat = input.nextLine();
 		StringBuilder ubahKalimat = new StringBuilder();
 		
-		//Pecah kalimat menjadi kata
+		//Split kalimat menjadi kata
 		for (String word : kalimat.split(" ")) {
 			ubahKalimat.append(replaceAll(word, '*')); // masukkan kata pengganti ke method replaceAll
 			ubahKalimat.append(" ");
@@ -30,15 +30,11 @@ public class Soal05 {
 		if (word.length()>2) {
 			//Huruf Pertama tetap
 			ret.append(word.charAt(0));
-			//Ganti isi kata
+			//Ganti isi kata dengan 3 buah *			
 			for (int i = 1; i < word.length() - 1; i++) {
 				ret.append(replacer);
 			}
-			/*
-			for (int i = 0; i < 3; i++) {	//Ganti * jadi 3buah *
-				ret.append(replacer);
-			}
-			 */
+			
 			//Huruf terakhir kata tetap
 			ret.append(word.charAt(word.length() - 1));
 			return ret.toString();

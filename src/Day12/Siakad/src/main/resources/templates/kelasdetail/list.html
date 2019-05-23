@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>List Data Kelas Detail</title>
+</head>
+<body>
+	<caption>List Data Kelas Detail</caption>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+	<table>
+		<caption>Kelas Detail</caption>
+		<thead>
+			<tr>
+				<th>Kode Kelas</th>
+				<th>NIM</th>
+				<th>Nilai</th>
+				<th>Status</th>
+				<th>Edit</th>
+				<th>Hapus</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "item:${kelasdetailList}">
+			
+			<td th:text = "${item.kdKelas}"></td>
+			<td th:text = "${item.nim}"></td>
+			<td th:text = "${item.nilai}"></td>
+			<td th:text = "${item.status}"></td>
+			
+			<td><a th:href = "@{edit/{id}(id=${item.id})}">Edit</a></td>
+			<td><a th:href = "@{hapus/{id}(id=${item.id})}">Hapus</a></td>
+			
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
