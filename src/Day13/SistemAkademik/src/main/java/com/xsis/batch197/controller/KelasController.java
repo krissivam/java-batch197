@@ -61,12 +61,12 @@ public class KelasController {
 	public String edit(Model kirim, @PathVariable(name="id")Integer id) {
 		KelasModel kelasEdit = kelasRepo.findById(id).orElse(null);
 		kirim.addAttribute("kelasEdit", kelasEdit);
-		List<DosenModel> dosenList = dosenRepo.findAll();
-		kirim.addAttribute("dosenList", dosenList);
-		List<MatakuliahModel> matakuliahList = matakuliahRepo.findAll();
-		kirim.addAttribute("matakuliahList", matakuliahList);
-		List<RuangModel> ruangList = ruangRepo.findAll();
-		kirim.addAttribute("ruangList", ruangList);
+		List<DosenModel> listDosen = dosenRepo.findAll();
+		kirim.addAttribute("listDosen", listDosen);
+		List<MatakuliahModel> listMatakuliah = matakuliahRepo.findAll();
+		kirim.addAttribute("listMatakuliah", listMatakuliah);
+		List<RuangModel> listRuang = ruangRepo.findAll();
+		kirim.addAttribute("listRuang", listRuang);
 		return "kelas/edit";
 	}
 	
