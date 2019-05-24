@@ -1,0 +1,41 @@
+<html>
+<body>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+<table>
+	<caption><h2>List Data Dosen</h2></caption>
+	<thead>
+		<tr>
+			<th>Kode Dosen</th>
+			<th>Nama Dosen</th>
+			<th>Jenis Kelamin</th>
+			<th>Alamat</th>
+			<th>Edit</th>
+			<th>Hapus</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="item:${dosenList}">
+		<td><span th:text="${item.kdDosen}"></span></td>
+		<td><span th:text="${item.nmDosen}"></span></td>
+		<td><span th:text="${item.jk}"></span></td>
+		<td><span th:text="${item.alamat}"></span></td>
+		<td><a th:href = "@{edit/{id}(id=${item.id})}">edit</a></td>
+        <td><a th:href = "@{hapus/{id}(id=${item.id})}">hapus</a></td>
+		</tr>
+	</tbody>
+</table>
+<table>
+		<th><button type="button"><a href="/dosen/index">Back to Form</a></button>
+			<button type="button"><a href="/home/menu">Back to Menu</a></button></th>
+</table>
+</body>
+</html>

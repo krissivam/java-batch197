@@ -1,7 +1,7 @@
-package com.axis.batch197.siakad.model;
+package com.xsis.batch197.model;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,32 +15,43 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+
 @Entity
-@Table(name = "jurusan")
+@Table(name ="jurusan")
 public class JurusanModel {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "jurusan_seq")
-	@TableGenerator(name = "jurusan_seq", table = "tbl_sequences", pkColumnName = "seq_id", valueColumnName = "seq_value", initialValue = 0, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "jurusan_seq")
+    @TableGenerator(name = "jurusan_seq", table = "tbl_sequences", pkColumnName = "seq_id", valueColumnName = "seq_value", initialValue = 0, allocationSize = 1)
+    @Column(name = "id")
+    private int id;
 	
-	@Column(name = "id")
-	private int id;
-	
-	@Column(name = "kd_jurusan", length = 10, nullable=false)
+	public List<MatakuliahModel> getListMatakuliah() {
+		return listMatakuliah;
+	}
+
+	public void setListMatakuliah(List<MatakuliahModel> listMatakuliah) {
+		this.listMatakuliah = listMatakuliah;
+	}
+
+	@Column(name="kd_jurusan", length = 10)
 	private String kdJurusan;
 	
-	@Column(name = "nm_jurusan", length = 100, nullable=false)
+	@Column(name="nm_jurusan", length = 50)
 	private String nmJurusan;
 	
-	@Column(name = "fakultas_id", nullable=false)
+	@Column(name="fakultas_id")
 	private int fakultasId;
 	
 	@OneToMany(mappedBy="jurusan")
-	private List<MahasiswaModel>listMahasiswa = new ArrayList<MahasiswaModel>();
+	private List<MahasiswaModel> listMhs = new ArrayList<MahasiswaModel>();
+	
+	@OneToMany(mappedBy="jurusan")
+	private List<MatakuliahModel> listMatakuliah = new ArrayList<MatakuliahModel>();
 	
 	@ManyToOne
-	@JoinColumn(name = "fakultas_id", foreignKey = @ForeignKey(name="fk_jurusan_fakultas"), updatable = false, insertable = false)
+	@JoinColumn(name ="fakultas_id", foreignKey=@ForeignKey(name="fk_jurusan_fakultas"), updatable=false, insertable=false)
 	private FakultasModel fakultas;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -73,12 +84,12 @@ public class JurusanModel {
 		this.fakultasId = fakultasId;
 	}
 
-	public List<MahasiswaModel> getListMahasiswa() {
-		return listMahasiswa;
+	public List<MahasiswaModel> getListMhs() {
+		return listMhs;
 	}
 
-	public void setListMahasiswa(List<MahasiswaModel> listMahasiswa) {
-		this.listMahasiswa = listMahasiswa;
+	public void setListMhs(List<MahasiswaModel> listMhs) {
+		this.listMhs = listMhs;
 	}
 
 	public FakultasModel getFakultas() {

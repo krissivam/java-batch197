@@ -1,4 +1,6 @@
-package com.axis.batch197.siakad.controller;
+package com.xsis.batch197.controller;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,24 +9,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.axis.batch197.siakad.model.MahasiswaModel;
-import com.axis.batch197.siakad.repository.MahasiswaRepo;
-
-import java.util.List;
+import com.xsis.batch197.model.JurusanModel;
+import com.xsis.batch197.model.MahasiswaModel;
+import com.xsis.batch197.repository.JurusanRepo;
+import com.xsis.batch197.repository.MahasiswaRepo;
 
 @Controller
 public class MahasiswaController {
-	
 	@Autowired
 	private MahasiswaRepo mahasiswaRepo;
 	
+	@Autowired
+	private JurusanRepo jurusanRepo;
 	
-	
-	@RequestMapping(value="/mahasiswa/form")
-	public String form() {
-		return "mahasiswa/form";
+	@RequestMapping(value = "/mahasiswa/index")
+	public String index(Model jurusan) {
+		List<JurusanModel> listJurusan = jurusanRepo.findAll();
+		jurusan.addAttribute("listJurusan", listJurusan);
+		return "mahasiswa/index";
 	}
-	
 	@RequestMapping(value="/mahasiswa/save")
 	public String save(@ModelAttribute MahasiswaModel mahasiswa) {
 		mahasiswaRepo.save(mahasiswa);
@@ -41,15 +44,17 @@ public class MahasiswaController {
 	public String edit(Model kirim, @PathVariable(name="id")Integer id) {
 		MahasiswaModel mahasiswaEdit = mahasiswaRepo.findById(id).orElse(null);
 		kirim.addAttribute("mahasiswaEdit", mahasiswaEdit);
+		List<JurusanModel> listJurusan = jurusanRepo.findAll();
+		kirim.addAttribute("listJurusan", listJurusan);
 		return "mahasiswa/edit";
 	}
 	
 	@RequestMapping(value="/mahasiswa/hapus/{id}")
 	public String hapus(@PathVariable(name="id") Integer id) {
-		MahasiswaModel mahasiswaHapus = mahasiswaRepo.findById(id).orElse(null);
-		mahasiswaRepo.delete(mahasiswaHapus);
+		MahasiswaModel mahasiswaEdit = mahasiswaRepo.findById(id).orElse(null);
+		mahasiswaRepo.delete(mahasiswaEdit);
 		return "redirect:/mahasiswa/list";
 	}
 	
-
+	
 }

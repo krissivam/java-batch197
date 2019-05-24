@@ -1,0 +1,45 @@
+<html>
+<body>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+<table>
+	<caption><h2>List Data Mahasiswa</h2></caption>
+	<thead>
+		<tr>
+			<th>NIM</th>
+			<th>Nama Mahasiswa</th>
+			<th>Jenis Kelamin</th>
+			<th>Alamat</th>
+			<th>Kode Jurusan</th>
+			<th>Status</th>
+			<th>Edit</th>
+			<th>Hapus</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="item:${mahasiswaList}">
+		<td><span th:text="${item.nim}"></span></td>
+		<td><span th:text="${item.nmMhs}"></span></td>
+		<td><span th:text="${item.jk}"></span></td>
+		<td><span th:text="${item.alamat}"></span></td>
+		<td><span th:text="${item.status}"></span></td>
+		<td><span th:text="${item.jurusan.kdJurusan}"></span></td>
+		<td><a th:href = "@{edit/{id}(id=${item.id})}">edit</a></td>
+        <td><a th:href = "@{hapus/{id}(id=${item.id})}">hapus</a></td>
+		</tr>
+	</tbody>
+</table>
+<table>
+		<th><button type="button"><a href="/mahasiswa/index">Back to Form</a></button>
+			<button type="button"><a href="/home/menu">Back to Menu</a></button></th>
+</table>
+</body>
+</html>

@@ -24,9 +24,9 @@ public class JurusanController {
 	private FakultasRepo fakultasRepo;
 	
 	@RequestMapping(value="/jurusan/form")
-	public String form(Model fakultas) {
-		List<FakultasModel> listFakultas = fakultasRepo.findAll();
-		fakultas.addAttribute("listFakultas", listFakultas);
+	public String form(Model kirim) {
+		List<FakultasModel> fakultasList = fakultasRepo.findAll();
+		kirim.addAttribute("fakultasList", fakultasList);
 		return "jurusan/form";
 	}
 	

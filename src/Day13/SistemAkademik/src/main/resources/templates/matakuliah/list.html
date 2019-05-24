@@ -1,0 +1,41 @@
+<html>
+<body>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+<table>
+	<caption><h2>List Data Mata Kuliah</h2></caption>
+	<thead>
+		<tr>
+			<th>Kode Mata Kuliah</th>
+			<th>Nama Mata Kuliah</th>
+			<th>SKS</th>
+			<th>Kode Jurusan</th>
+			<th>Edit</th>
+			<th>Hapus</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="item:${matakuliahList}">
+		<td><span th:text="${item.kdMatakuliah}"></span></td>
+		<td><span th:text="${item.nmMatakuliah}"></span></td>
+		<td><span th:text="${item.sks}"></span></td>
+		<td><span th:text="${item.jurusan.kdJurusan}"></span></td>
+		<td><a th:href = "@{edit/{id}(id=${item.id})}">edit</a></td>
+        <td><a th:href = "@{hapus/{id}(id=${item.id})}">hapus</a></td>
+		</tr>
+	</tbody>
+</table>
+<table>
+		<th><button type="button"><a href="/matakuliah/index">Back to Form</a></button>
+			<button type="button"><a href="/home/menu">Back to Menu</a></button></th>
+</table>
+</body>
+</html>
