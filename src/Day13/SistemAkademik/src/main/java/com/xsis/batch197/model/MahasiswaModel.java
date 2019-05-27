@@ -1,5 +1,8 @@
 package com.xsis.batch197.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -42,9 +45,20 @@ public class MahasiswaModel {
 	@ManyToOne
 	@JoinColumn(name="jurusan_id", foreignKey=@ForeignKey(name="fk_mahasiswa_jurusan"), insertable= false, updatable = false)
 	private JurusanModel jurusan;
+	
+	@OneToMany(mappedBy ="mahasiswa")
+	private List<KelasdetailModel> listMahasiswa = new ArrayList<KelasdetailModel>();
 
 	public int getId() {
 		return id;
+	}
+
+	public List<KelasdetailModel> getListMahasiswa() {
+		return listMahasiswa;
+	}
+
+	public void setListMahasiswa(List<KelasdetailModel> listMahasiswa) {
+		this.listMahasiswa = listMahasiswa;
 	}
 
 	public void setId(int id) {

@@ -2,9 +2,12 @@ package com.xsis.batch197.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -17,17 +20,29 @@ public class KelasdetailModel {
     @Column(name = "id")
     private int id;
 	
-	@Column(name="kd_kelas", length = 10)
-	private String kdKelas;
+	@Column(name="kelas_id")
+	private int kelasId;
 	
-	@Column(name="nim", length = 10)
-	private String nim;
+	@Column(name="mahasiswa_id")
+	private int mahasiswaId;
 	
-	@Column(name="kd_nilai", length = 2 )
-	private String kdNilai;
+	@Column(name="bobotnilai_id")
+	private int bobotnilaiId;
 	
 	@Column(name="status", length = 10)
 	private String status;
+	
+	@ManyToOne
+	@JoinColumn(name="kelas_id", foreignKey=@ForeignKey(name="fk_kelasdetail_kelas"), insertable=false, updatable=false)
+	private KelasModel kelas;
+	
+	@ManyToOne
+	@JoinColumn(name="mahasiswa_id", foreignKey=@ForeignKey(name="fk_kelasdetail_mahasiswa"), insertable=false, updatable=false)
+	private MahasiswaModel mahasiswa;
+	
+	@ManyToOne
+	@JoinColumn(name="bobotnilai_id", foreignKey=@ForeignKey(name="fk_kelasdetail_bobotnilai"), insertable=false, updatable=false)
+	private BobotnilaiModel bobotnilai;
 
 	public int getId() {
 		return id;
@@ -37,28 +52,28 @@ public class KelasdetailModel {
 		this.id = id;
 	}
 
-	public String getKdKelas() {
-		return kdKelas;
+	public int getKelasId() {
+		return kelasId;
 	}
 
-	public void setKdKelas(String kdKelas) {
-		this.kdKelas = kdKelas;
+	public void setKelasId(int kelasId) {
+		this.kelasId = kelasId;
 	}
 
-	public String getNim() {
-		return nim;
+	public int getMahasiswaId() {
+		return mahasiswaId;
 	}
 
-	public void setNim(String nim) {
-		this.nim = nim;
+	public void setMahasiswaId(int mahasiswaId) {
+		this.mahasiswaId = mahasiswaId;
 	}
 
-	public String getKdNilai() {
-		return kdNilai;
+	public int getBobotnilaiId() {
+		return bobotnilaiId;
 	}
 
-	public void setKdNilai(String kdNilai) {
-		this.kdNilai = kdNilai;
+	public void setBobotnilaiId(int bobotnilaiId) {
+		this.bobotnilaiId = bobotnilaiId;
 	}
 
 	public String getStatus() {
@@ -68,5 +83,31 @@ public class KelasdetailModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public KelasModel getKelas() {
+		return kelas;
+	}
+
+	public void setKelas(KelasModel kelas) {
+		this.kelas = kelas;
+	}
+
+	public MahasiswaModel getMahasiswa() {
+		return mahasiswa;
+	}
+
+	public void setMahasiswa(MahasiswaModel mahasiswa) {
+		this.mahasiswa = mahasiswa;
+	}
+
+	public BobotnilaiModel getBobotnilai() {
+		return bobotnilai;
+	}
+
+	public void setBobotnilai(BobotnilaiModel bobotnilai) {
+		this.bobotnilai = bobotnilai;
+	}
+
+	
 	
 }

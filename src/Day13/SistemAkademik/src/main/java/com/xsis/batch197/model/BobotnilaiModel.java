@@ -1,10 +1,14 @@
 package com.xsis.batch197.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -22,6 +26,19 @@ public class BobotnilaiModel {
 	
 	@Column(name="bobot")
 	private int bobot;
+	
+	public List<KelasdetailModel> getListBobotnilai() {
+		return listBobotnilai;
+	}
+
+
+	public void setListBobotnilai(List<KelasdetailModel> listBobotnilai) {
+		this.listBobotnilai = listBobotnilai;
+	}
+
+
+	@OneToMany(mappedBy ="bobotnilai")
+	private List<KelasdetailModel> listBobotnilai = new ArrayList<KelasdetailModel>();
 
 
 	public int getId() {

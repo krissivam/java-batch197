@@ -1,0 +1,40 @@
+<html>
+<body>
+<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+<table>
+	<thead>
+		<tr>
+			<th>Kode Kelas</th>
+			<th>NIM</th>
+			<th>Nilai</th>
+			<th>Status</th>
+			<th>Edit</th>
+			<th>Hapus</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="item:${kelasdetailList}">
+		<td><span th:text="${item.kelas.kdKelas}"></span></td>
+		<td><span th:text="${item.mahasiswa.nim}"></span></td>
+		<td><span th:text="${item.bobotnilai.kdNilai}"></span></td>
+		<td><span th:text="${item.status}"></span></td>
+		<td><a th:href = "@{edit/{id}(id=${item.id})}">edit</a></td>
+        <td><a th:href = "@{hapus/{id}(id=${item.id})}">hapus</a></td>
+		</tr>
+	</tbody>
+</table>
+<table>
+		<th><button type="button"><a href="/kelasdetail/index">Back to Form</a></button>
+			<button type="button"><a href="/home/menu">Back to Menu</a></button></th>
+</table>
+</body>
+</html>
