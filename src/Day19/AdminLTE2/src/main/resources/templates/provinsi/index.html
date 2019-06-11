@@ -3,51 +3,50 @@
 <head th:replace="fragments/header :: header_app">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-	<style>
-		.example-modal .modal {
-    	 position: relative;
-    	 top: auto;
-   		 bottom: auto;
-     	 right: auto;
-  	   	 left: auto;
-     	 display: block;
-     	 z-index: 1;
-   		}
+ <style>
+   .example-modal .modal {
+     position: relative;
+     top: auto;
+     bottom: auto;
+     right: auto;
+     left: auto;
+     display: block;
+     z-index: 1;
+   }
+   .example-modal .modal {
+     background: transparent !important;
+   }
+ </style>
+	<div class="wrapper">
+		<!-- header -->
+		<header th:replace="fragments/header :: header"></header>
+		<!-- sidebar -->
+		<aside th:replace="fragments/sidebar :: sidebar"></aside>
 
-   		.example-modal .modal {
-     	 background: transparent !important;
-   		}
- 	</style>
- 		<div class="wrapper">
- 			<!-- header -->
- 			<header th:replace="fragments/header :: header"></header>
- 			<!-- sidebar -->
- 			<aside th:replace="fragments/sidebar :: sidebar"></aside>
- 		
- 			<!-- Content Wrapper. Contains page content -->
- 			<div class="content-wrapper">
- 				<!-- Content Header (Page header) -->
- 				<section class="content-header">
- 					<h1>
- 						Provinsi<small>Index</small>
- 					</h1>
- 					<ol class="breadcrumb">
- 						<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
- 						<li class="active">Provinsi</li>
- 					</ol>
- 				</section>
- 				<!-- Main Content -->
- 				<section class="content">
- 					<div class="row">
- 						<div class="col-md-12">
- 							<!-- Content Mulai -->
- 							<div class="box box-info box-solid">
- 								<div class="box-header with-border">
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Provinsi <small>Index</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li class="active">Propinsi</li>
+				</ol>
+			</section>
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<!-- content mulai -->
+						<div class="box box-info box-solid">
+							<div class="box-header with-border">
 								<h3 class="box-title">List Provinsi</h3>
 								<div class="box-tools">
-									<div class="input-group input-group-sm" style="width: 250px;">
-										<input type="text" class="form-control pull-right" placeholder="search" />
-										<div class="input-group-btn">
+									<div class="input-group input-group-sm" style="width:250px;">
+										<input type="text" class="form-control pull-right" placeholder="search"/>
+										<div class="input-group-btn">											
 											<button type="button" class="btn btn-warning btn-sm" id="btn-search">
 												<i class="fa fa-search"></i>
 											</button>
@@ -58,43 +57,44 @@
 									</div>
 								</div>
 							</div>
- 								<div class="box-body">
- 									<table class="table">
- 										<thead>
- 											<tr>
- 												<th>Id</th>
- 												<th>Kode</th>
- 												<th>Nama Provinsi</th>
- 												<th>#</th>
- 											</tr>
- 										</thead>
- 										<tbody id="list-data">
- 											
- 										</tbody>
- 									</table>
- 								</div>
- 							</div>
- 							<!-- Content Selesai -->
- 						</div>
- 					</div>
- 				</section>
- 			</div>
- 			<!-- Footer -->
- 			<div th:replace="fragments/footer :: footer"></div>
- 		</div>
- 		 		
- 		<!-- Modal mulai -->
- 		<div class="modal fade" id="modal-input">
- 			<div class="modal-dialog">
- 			</div>
- 		</div>
- 		<!-- Modal selesai -->
- 		
- 		<!-- Script Javascript -->
- 		<div th:replace="fragments/footer :: scripts"></div>
- 		
- 		<!-- script untuk CRUD page provinsi  -->
- 		<script>
+							<div class="box-body">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Kode</th>
+											<th>Nama Propinsi</th>
+											<th>#</th>
+										</tr>
+									</thead>
+									<tbody id="list-data">
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- content selesai -->
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- footer -->
+		<div th:replace="fragments/footer :: footer"></div>
+	</div>
+	
+	<!-- modal mulai -->
+	<div class="modal fade" id="modal-input">
+		<div class="modal-dialog">
+		
+		</div>
+	</div>
+	<!-- modal selesai -->
+	
+	<!-- script javascript -->
+	<div th:replace="fragments/footer :: scripts"></div>
+	
+	<!-- script untuk CRUD page provinsi  -->
+	<script>
 		//#1. Read function javascript
 		function loadData(){
 			// function JQuery
