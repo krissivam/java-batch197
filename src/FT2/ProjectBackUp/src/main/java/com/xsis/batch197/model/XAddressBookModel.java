@@ -1,11 +1,17 @@
 package com.xsis.batch197.model;
 
 import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -14,6 +20,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -81,17 +88,22 @@ public class XAddressBookModel {
 	@Column(name = "email", length = 100, nullable = false)
 	private String email;
 
-	@NotNull
+	@NotNull(message="Name is compulsory")
 	@NotBlank
 	@NotEmpty
 	@Column(name = "abuid", length = 50, nullable = false)
 	private String abuid;
 
-	@NotNull
+	@NotNull(message="Password is compulsory")
 	@NotBlank
 	@NotEmpty
+	@Length(min=8, message="Password should be at least 8 characters")
 	@Column(name = "abpwd", length = 50, nullable = false)
 	private String abpwd;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "x_userrole", joinColumns = @JoinColumn(name = "addrbook_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<XRoleModel> roles;
 
 	public Long getId() {
 		return id;
@@ -187,6 +199,14 @@ public class XAddressBookModel {
 
 	public void setAbpwd(String abpwd) {
 		this.abpwd = abpwd;
+	}
+
+	public Set<XRoleModel> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<XRoleModel> roles) {
+		this.roles = roles;
 	}
 
 }

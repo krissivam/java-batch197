@@ -1,0 +1,341 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header_app">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Test App</title>
+
+<!-- jQuery 3 -->
+<script th:src="@{~/jquery/dist/jquery.min.js}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script th:src="@{~/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- Bootstrap 3.3.7 -->
+<link type="text/css" rel="stylesheet"
+	th:href="@{~/bootstrap/css/bootstrap.min.css}" />
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	th:href="@{~/font-awesome/css/font-awesome.min.css}" />
+<!-- Ionicons -->
+<link rel="stylesheet" th:href="@{~/Ionicons/css/ionicons.min.css}" />
+<!-- Date Picker -->
+<link rel="stylesheet"
+	th:href="@{~/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css}">
+<link type="text/css"
+	th:href="@{~/bootstrap/css/bootstrap-responsive.min.css}"
+	rel="stylesheet">
+<link type="text/css" th:href="@{~/css/theme.css}" rel="stylesheet">
+</head>
+<body>
+	<header class="main-header" th:fragment="header">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<!-- First dropdown code -->
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Menu 1 <span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Sub Menu 1</a></li>
+								<li><a href="#">Sub Menu 2</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Sub Menu 3</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Menu 2 <span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Sub Menu 1</a></li>
+								<li><a href="#">Sub Menu 2</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Sub Menu 3</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Pengaturan <span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="#" data-target="#tbhPengguna"
+									data-toggle="modal">Pengguna</a></li>
+								<li><a href="#">Sub Menu 2</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Sub Menu 3</a></li>
+							</ul></li>
+						<li><a href="#">Menu 4 <span class="sr-only">(current)</span>
+						</a></li>
+						<li><a href="#">Menu 5 <span class="sr-only">(current)</span>
+						</a></li>
+						<li><a href="#">Menu 6 <span class="sr-only">(current)</span>
+						</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<!-- Second dropdown code -->
+						<li><a href="#"> <i class="fa fa-bell"></i>
+						</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Hi, Arfan <span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Ganti Password</a></li>
+								<li><a href="https://www.jquery-az.com/about-us/">Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!-- Modal -->
+		
+		<style>
+			.row {
+				margin-left: -15px !important;
+			}
+			
+			<style type="text/css">
+                .background-lgn 
+                {
+                    position: absolute;
+                    margin: auto;
+                    left: 0;
+                    top: 0;
+                    bottom:0;
+                    right:0;
+                    width: 470px;
+                    height: 300px;
+                    background-color: #f0f5f5;
+                    border-color:#000080;
+                    border-style: solid;
+                    border-width: 1px;
+                    text-align:center;
+                }
+                .cntr-content
+                {
+                    position: absolute;
+                    margin: auto;
+                    left: 18%;
+                    top: 5%;
+                    text-align:center;
+                }
+                .brdr-lgn
+                {
+                    border-color:#000080;
+                    border-style: solid;
+                    border-width: 1px;
+                }
+                .fnt
+                {
+                    font-weight:bold;
+                    color:#000080;
+                }
+                .size-lgn
+                {
+                    width: 300px;
+                    height: 30px;
+                }
+              .btn-simpan
+              {
+                  font-weight:bold;
+                  color: white;
+                  background-color: #000080;            
+              }
+              
+              .btn-cancel 
+              {
+              	font-weight:bold;
+                color: white;
+              	background-color: #e55116;
+              }
+              
+              .btn-delete
+              {
+              	font-weight:bold;
+                color: white;
+              	background-color: #ba0303
+              }
+              
+              .btn:hover
+              {
+                color: white;
+              }     
+              .btn:focus
+              {
+                  color: white;
+              }             
+        </style>
+		</style>
+		
+		<!-- <form th:action = "@{~/pengguna/save}" th:object = "${pengguna}" id = "form-pengguna"> -->
+			<div class="modal fade" id="tbhPengguna" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<div class="row">
+								<div class="col-md-6">
+									<!-- content mulai -->
+									<div class="box-tools">
+										<div class="input-group input-group-sm">
+											<div class="input-group-btn">
+												<button type="submit" class="btn btn-simpan">
+													<i class="fa fa-search"></i>
+												</button>
+											</div>
+											<input type="text" name="table_search" class="form-control"
+												placeholder="Search">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-body">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="row">
+									<div class="col-md-12">
+										<div th:class = "${fields.hasErrors('fullname')} ? form-group has-error':'form-group'">
+										<div class="form-group">
+											<label>Nama Lengkap*</label> <input type="text"
+												class="form-control" th:fields="*{fullname}" placeholder="Nama lengkap" readonly/>
+										</div>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Email*</label> <input type="email"
+												class="form-control" placeholder="Enter email">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Sandi*</label> <input type="password" name="abpwd" id="abpwd"
+												class="form-control" placeholder="Enter password">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Ulangi Sandi*</label> <input type="password" name="abpwd2" id="abpwd2"
+												class="form-control" placeholder="Enter password">
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-4">
+								<div class="modal-body">
+									<div class="box box-info box-solid">
+										<div class="box-header with-border">
+											<h4 class="box-title">Roles*</h4>
+											<div class="box box-body">
+												<div class="form-group">
+													<div class="checkbox">
+														<label> <input type="checkbox"> Role 1
+														</label>
+													</div>
+
+													<div class="checkbox">
+														<label> <input type="checkbox"> Role 2
+														</label>
+													</div>
+
+													<div class="checkbox">
+														<label> <input type="checkbox"> Role 3
+														</label>
+													</div>
+
+													<div class="checkbox">
+														<label> <input type="checkbox"> Role 4
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="modal-footer">
+							<div class="box-tools">
+								<div class="input-group input-group-sm">
+									<div class="input-group-btn">
+										<button data-dismiss="modal"
+											class="btn btn-xs btn-delete btn-delete">
+											<i class="fa fa-trash pull-left"></i>
+										</button>
+										<button type="submit" class="btn pull-right btn-simpan" id="btn-tbhPengguna">Simpan</button>
+										<button data-dismiss="modal"
+											class="btn btn-cancel pull-right">Batal</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+		<!-- SCRIPT JAVASCRIPT -->
+		
+		<!--  <script>
+		//#4 event di modal input, kemudian cari element dengan id form-pelamar
+		// event ny adalah ketika form di submit
+		$("#modal-input").on("submit", "#form-pengguna", function() {
+			// inisialisasi variable dataForm, diambil dari serialize method
+			var dataForm = $(this).serialize()
+			// inisialisasi variable urlForm diambil dari atribute action dari form
+			// sehingga untuk CREATE, UPDATE, DELETE menggunakan data ini
+			// dan tidak perlu membuat event submit berkali-kali
+			var urlForm = $(this).attr('action');
+			// submit data dengan AJAX
+			$.ajax({
+				url : urlForm, // url di isi dengan variable urlForm
+				type : 'post',
+				data : dataForm, // data di isi dengan variable dataForm
+				dataType : 'html',
+				done : function() {
+					$("#modal-input").find(".modal-dialog").html("");
+				},
+				success : function(result) {
+					// masukan dulu result ke modal
+					$("#modal-input").find(".modal-dialog").html(result)
+					// check jumlah element yang memiliki class has-error
+					var check = $("#modal-input").find(".has-error").length;
+					// jika tidak ada error
+					if (check == 0) {
+						// menyembunyikan modal dengan id modal-input
+						$("#modal-input").modal('hide');
+						// tampilkan data dengan memanggil method loadData
+						loadData();
+					}
+				},
+			});
+			// mencegah submit automatis, sehingga form akan diam tidak melakukan action
+			return false;
+		});
+		</script> -->
+		
+		<script>
+			$()
+		</script>
+
+
+		<!-- SCRIPT JAVASCRIPT -->
+	</header>
+</body>
+</head>

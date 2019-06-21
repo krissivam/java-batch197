@@ -8,45 +8,42 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="role")
+@Table(name = "auth_role")
 public class Role {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "auth_role_id")
+	private int id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id", length=20, nullable=false)
-    private Long id;
-    
-    @Column(name="name", length=255, nullable=true)
-    private String name;
+	@Column(name = "role_name")
+	private String role;
 
-    public Role() {
-    }
+	@Column(name = "role_desc")
+	private String desc;
 
-    public Role(String name) {
-        this.name = name;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getRole() {
+		return role;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getDesc() {
+		return desc;
+	}
 
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	
+	
 }

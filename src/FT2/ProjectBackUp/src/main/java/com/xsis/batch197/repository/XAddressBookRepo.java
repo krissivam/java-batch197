@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.xsis.batch197.model.XAddressBookModel;
 @Repository
 public interface XAddressBookRepo extends JpaRepository<XAddressBookModel, Long>{
+	
+	public XAddressBookModel findByEmail(String email); 
 		
 }

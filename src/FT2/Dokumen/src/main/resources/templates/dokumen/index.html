@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header_app">
+</head>
+<body class="hold-transition">
+	<style>
+   .example-modal .modal {
+     position: relative;
+     top: auto;
+     bottom: auto;
+     right: auto;
+     left: auto;
+     display: block;
+     z-index: 1;
+   }
+
+   .example-modal .modal {
+     background: transparent !important;
+   }
+ </style>
+	<div class="modal-body wrapper">
+		<div class="row">
+			<aside th:replace="fragments/sidebarmodal :: sidebarmodal"></aside>
+			<div class="col-md-8">
+				<div class="form-group">
+					<div class="col-md-9">
+						<div class="form-group">
+							<div class="box-header with-border">
+								<h3 class="box-title">
+									<font color=#000066>Dokumen</color></font>
+									<!--membuat button tambah  -->
+									<button type="button" class="btn btn-link" id="btn-add">
+										<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+									</button>
+
+								</h3>
+								<!-- membuat garis tabel -->
+								<div class="box-body">
+									<thead class="table-style">
+										<table class="table table-striped">
+											<tr>
+												<th><font color=#000066>NAMA FILE</color></font></th>
+												<th><font color=#000066>KETERANGAN</color></font></th>
+												<th><font color=#000066>#</color></font></th>
+											</tr>
+										</table>
+									</thead>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- modal mulai -->
+		<div class="modal fade" id="modal-input">
+			<div class="modal-dialog">
+				
+			</div>
+		</div>
+		<!-- modal selesai -->
+
+	</div>
+
+
+	<!-- Footer -->
+	<div th:replace="fragments/footer :: footer"></div>
+	<!-- /Footer -->
+
+	<!-- script javascript -->
+	<div th:replace="fragments/footer :: scripts"></div>
+
+	<!-- script untuk CRUD page provinsi  -->
+
+	<script>
+		
+		//Ajax menampilkan pop-up tambah dokumen
+		$("#modal-input").on("click", "#btn-add", function(){
+			$.ajax({
+				url : '/dokumen/add' , // lihat di SertifikasiController, cari GetMapping(value="/create")
+				type : 'get',
+				dataType : 'html',
+				success : function(result) {
+					$("#modal-input").find(".modal-dialog").html(result);
+					// menampilkan modal dengan id modal-input
+					$("#modal-input").modal('show');
+				}
+			});
+			
+		});
+	
+	</script>
+	
+</body>
+</html>
+

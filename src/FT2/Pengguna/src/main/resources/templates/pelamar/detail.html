@@ -1,0 +1,149 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<font color="white" class="pull-left"
+			style="margin-left: 10px; margin-top: 15px">Detail Pelamar</font>
+		<button type="button" class="close btn-warning" data-dismiss="modal"
+			aria-label="Close" style="margin-top: 10px">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+</nav>
+<div class="modal-body wrapper">
+	<div class="row">
+		<div class="col-md-3">
+			<!-- Class class="widget widget-menu unstyled" ini harus lu ganti untuk ngeraphinnya -->
+			<ul class="widget widget-menu unstyled" style="padding: 35px">
+				<li><a href="#">Profil</a></li>
+				<li><a href="#">Biodata</a></li>
+				<li><a href="#">Pengalaman Kerja</a></li>
+				<li><a href="#">Pendidikan</a></li>
+				<li><a href="#">Pelatihan</a></li>
+				<li><a href="#">Sertifikasi</a></li>
+				<li><a href="#">Sumber Lowongan Kerja</a></li>
+				<li><a href="#">Organisasi</a></li>
+				<li><a href="#">Keluarga</a></li>
+				<li><a href="#">Keahlian</a></li>
+				<li><a href="#">Lain-lain</a></li>
+				<li><a href="#">Dokumen</a></li>
+				<li><a href="#">Catatan</a></li>
+				<li><a href="#">Aktivasi Akun</a></li>
+				<li><a href="#">Lihat Tes</a></li>
+				<li><a href="#">Hasil Tes</a></li>
+			</ul>
+		</div>
+		<div class="col-md-8">
+			<table class="table btn-active">
+					<tr >
+						<!-- th:each="item:${listBioatt}"
+						<td th:text="${item.filePath}">foto</td> -->
+						<td>foto</td>
+						<td><h1 th:text="${pelamar.fullname}"></h1></td>
+						<td><button type="button" class="btn btn-primary">Unduh</button></td>
+					</tr>
+					<tr th:each="item:${listPek}">
+						<td></td>
+						<td th:text="${item.lastPosition}">java</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td th:text="${pelamar.dob}"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<span th:if="${pelamar.gender == 1}">Cowok</span>
+							<span th:unless="${pelamar.gender == 1}">Cewek</span> 
+						</td>
+					</tr>
+					<tr th:each="item:${listPend}">
+						<td></td>
+						<td th:text="${item.major}"></td>
+					</tr>
+			</table>
+			<table class="table btn-info">
+				<tr>
+					<td><h1>Pendidikan</h1></td>
+				</tr>
+				<tr th:each="item:${listPend}">
+					<td><span th:text="${item.entryYear}"></span> - <span th:text="${item.graduationYear}"></span></td>
+					<td><span th:text="${item.schoolName}"></span>, <span th:text="${item.country}"></span></td>
+				</tr>
+				<tr th:each="item:${listPend}">
+					<td></td>
+					<td th:text="${item.major}"></td>
+				</tr>
+				<tr th:each="item:${listPend}">
+					<td></td>
+					<td th:text="${item.gpa}"></td>
+				</tr>
+			</table>
+			<table class="table btn-active">
+				<tr>
+					<td><h1>Pengalaman</h1></td>
+				</tr>
+				<tr th:each="item:${listPek}">
+					<td><span th:text="${item.joinYear}"></span> - <span th:text="${item.resignYear}"></span></td>
+					<td th:text="${item.lastPosition}"></td>
+				</tr>
+				<tr th:each="item:${listPek}">
+					<td></td>
+					<td th:text="${item.companyName}"></td>
+				</tr>
+			</table>
+			<table class="table btn-info">
+				<tr>
+					<td><h1>Keterampilan</h1></td>
+				</tr>
+				<tr th:each="item:${listKeahlian}">
+					<td >
+						<span th:if="${pelamar.gender == 0}"></span>
+						<span th:if="${item.skillLevelId == 1}">tingkat lanjut</span> 
+					</td>
+					<td></td>
+				</tr>
+				<tr th:each="item:${listKeahlian}">
+					<td >
+						<span th:if="${pelamar.gender == 0}"></span>
+						<span th:if="${item.skillLevelId == 2}">menengah</span> 
+					</td>
+					<td></td>
+				</tr>
+				<tr th:each="item:${listKeahlian}">
+					<td >
+						<span th:if="${pelamar.gender == 0}"></span>
+						<span th:if="${item.skillLevelId == 3}">Pemula</span> 
+					</td>
+					<td></td>
+				</tr>
+			</table>
+			<table class="table btn-active">
+				<tr>
+					<td><h1>Training</h1></td>
+				</tr>
+				<tr th:each="item:${listPel}">
+					<td th:text="${item.trainingYear}"></td>
+					<td th:text="${item.trainingName}"></td>
+				</tr>
+				<tr th:each="item:${listPel}">
+					<td></td>
+					<td th:text="${item.notes}"></td>
+				</tr>
+			</table>
+			<table class="table btn-info">
+				<tr>
+					<td><h1>Sertifikasi</h1></td>
+				</tr>
+				<tr th:each="item:${listSer}">
+					<td><span th:text="${item.validStartYear}"></span> - <span th:text="${item.untilYear}"></span></td>
+					<td th:text="${item.certificateName}"></td>
+				</tr>
+				<tr th:each="item:${listSer}">
+					<td></td>
+					<td th:text="${item.notes}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div>

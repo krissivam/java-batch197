@@ -5,9 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.axis.batch197.model.User;
 
-
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-	User findByEmail(String email);
-}
+public interface UserRepository extends JpaRepository<User, Integer> {
 
+	public User findByEmail(String email);
+}
